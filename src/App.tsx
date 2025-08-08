@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { ReactNode, Suspense, useEffect } from 'react'
 import { ErrorBoundary } from './components/ErrorBoundary'
 import { routeConfig, notFoundRoute } from './config/routes'
-import { IRouteConfig } from './types/i-route'
+import { RouteConfig } from './types/route.ts'
 import Navigation from './components/Navigation'
 import LoadingSpinner from './components/LoadingSpinner'
 import ProtectedRoute from './components/ProtectedRoute'
@@ -48,7 +48,7 @@ function App() {
   )
 }
 
-function RouteWrapper({ route, children }: { route: IRouteConfig; children: ReactNode }) {
+function RouteWrapper({ route, children }: { route: RouteConfig; children: ReactNode }) {
   useEffect(() => {
     document.title = `${route.title} - AgriLogic`
   }, [route.title])

@@ -1,6 +1,6 @@
 import { ComponentType, LazyExoticComponent } from 'react'
 
-export interface IRouteConfig {
+export interface RouteConfig {
   id: string
   path: string
   component: LazyExoticComponent<ComponentType<Record<string, unknown>>>
@@ -15,9 +15,9 @@ export interface IRouteConfig {
   }
 }
 
-export interface IRouteGroup {
+export interface RouteGroup {
   id: string
   name: string
-  routes: IRouteConfig[]
+  routes: RouteConfig[]
   order: number
 }
