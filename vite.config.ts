@@ -36,15 +36,12 @@ export default defineConfig({
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/api\./i,
-            handler: 'CacheFirst',
+            handler: 'NetworkFirst',
             options: {
               cacheName: 'api-cache',
               expiration: {
                 maxEntries: 10,
                 maxAgeSeconds: 60 * 60 * 24 * 365 // <== 365 days
-              },
-              cacheKeyWillBeUsed: async ({ request }) => {
-                return `${request.url}?${Date.now()}`
               }
             }
           }
